@@ -3,7 +3,7 @@ export function Starlogo(props) {
   return (
 
     <svg
-    width={20}
+    width={15}
     viewBox="0 0 64 64"
     xmlns="http://www.w3.org/2000/svg"
     aria-hidden="true"

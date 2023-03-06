@@ -8,12 +8,22 @@
         --color-secondary: rgb(255, 102, 102);
         --color-accent1: navy;
         --color-accent2: gold;
+        font-family: 'Balthazar';
+        /* font-family: 'Rufina'; */
+    }
+    h1, h2, h3, h4 {
+        /* font-family: 'Rufina'; */
+        font-family: 'Balthazar';
     }
 }
 
 @layer components {
     .title-slider {
-        font-size: 2rem;
-        font-weight: 700;
+        @apply text-3xl font-bold
+    }
+}
+@layer utilities {
+    [class*=overflow]:not([class*=hidden]), :root {
+        @apply scrollbar-thin scrollbar-thumb-emerald-500 scrollbar-track-slate-100 scrollbar-thumb-rounded-full scroll-smooth
     }
 }

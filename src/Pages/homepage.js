@@ -5,8 +5,8 @@ export function Homepage(props) {
     // const picky = require("../assets/")
 
     return (
-        <div className=" flex flex-col gap-8">
-            <section className=" relative h-[50vh]  bg-cover  bg bg-top" style={{backgroundImage: 'url("https://wallpaper.dog/large/20494993.jpg")'}}>
+        <div className=" flex flex-col gap-8 ">
+            <section className=" relative h-[50vh] bg-cover bg-top" style={{backgroundImage: 'url("https://wallpaper.dog/large/20494993.jpg")'}}>
                 <div className=" absolute z-10 w-[100%] h-full top-0 flex flex-col justify-center items-center gap-5">
                     <div className=" w-[90%] flex justify-center">
                         <p className=" font-bold text-3xl md:text-6xl text-white">Welcome. <br/>Millions of Movies, TV Shows, and People to discover. Explore now.</p>
@@ -15,7 +15,7 @@ export function Homepage(props) {
                         <Search/>
                     </div>
                 </div>
-                <div className=" absolute w-full h-full top-0 left-0 bg-green-500 opacity-25"></div>
+                <div className=" absolute w-full h-full top-0 left-0 bg-green-500 backdrop-grayscale opacity-40"></div>
             </section>
             <section id="homepage-trending">
                 <Slider section="trending" options={[
