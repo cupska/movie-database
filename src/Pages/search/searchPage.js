@@ -45,6 +45,7 @@ export function SearchPage(props) {
                         {datas.map(data => {
                             if ((data.media_type === "person")||(data.known_for)) {
                                 const person = {
+                                    id: data.id,
                                     name: data.name, 
                                     image: `https://image.tmdb.org/t/p/w500/${data.profile_path}`
                                 }
@@ -54,6 +55,7 @@ export function SearchPage(props) {
                                     </li>
                                 )
                             } else {
+                                const id = data.id
                                 const title = data.name||data.title
                                 const rating = data.vote_average.toFixed(1)
                                 const image = `https://image.tmdb.org/t/p/w500/${data.poster_path}`
@@ -61,7 +63,7 @@ export function SearchPage(props) {
                                 const mediaType = data.media_type
                                 return (
                                     <li key={data.id}>
-                                    <CardMoviesTV title={title} rating={rating} image={image} releaseDate={releaseDate} mediaType={mediaType}/>
+                                    <CardMoviesTV id={id} title={title} rating={rating} image={image} releaseDate={releaseDate} mediaType={mediaType}/>
                                 </li>
                             )}
                         })}

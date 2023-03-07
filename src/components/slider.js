@@ -15,7 +15,7 @@ export function Slider(props) {
     }, [url])
 
     const [changeColor, setChangeColor] = useState(0)
-    console.log(optionActivated)
+    // console.log(optionActivated)
     return (
         <div>
           <div className=" ml-2 md:ml-10 mb-5 flex items-baseline gap-3">
@@ -54,12 +54,13 @@ export function Slider(props) {
 export function SliderNews(props) {
   const [datas, setDatas] = useState([])
 
-  const url = "https://newsapi.org/v2/everything?q=movie%20AND%20TV%20series&apiKey=62c243f297954421b39cf5ec1ce63f87"
+  // const url = "https://newsapi.org/v2/everything?q=movie%20AND%20TV%20series&apiKey=62c243f297954421b39cf5ec1ce63f87"
+  const url = `https://gnews.io/api/v4/search?q=film%20OR%20series&lang=en&country=us&max=10&apikey=099c51773d6e58717e7352d97927b523`
   useEffect(() => {
     fetch(url)
     .then(res => res.json())
-    .then(res => setDatas(res.articles.slice(0, 10)))
-  }, [])
+    .then(res => setDatas(res.articles))
+  }, [url])
 
   // console.log(datas)
   return (
@@ -70,7 +71,7 @@ export function SliderNews(props) {
           const title = data.title
           const description = data.description
           const url = data.url
-          const image = data.urlToImage
+          const image = data.image
           return (
             <li key={data.title} className=" bg-cover p-3" style={{backgroundImage: `url(${image})`}}>
               <a href={url} target="_blank" rel="noreferrer" className={`cursor-pointer`} >

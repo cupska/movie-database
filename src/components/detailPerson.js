@@ -21,9 +21,7 @@ export function DetailPerson(props) {
     const gender = data.gender === 1 ? "female" : "male"
     const biography = data.biography
 
-
-
-    console.log(data)
+    // console.log(data)
     return (
         <div>
             <div className=" sm:hidden">
@@ -56,7 +54,7 @@ export function DetailPerson(props) {
                 </div>
             </div>
 
-            <div className=" w-[40rem] sm:flex gap-3">
+            <div className=" w-[40rem] hidden sm:flex gap-3">
                 <div className=" w-1/3">
                     <img src={image} alt={name} className="rounded-lg"/>
                     <div className="">

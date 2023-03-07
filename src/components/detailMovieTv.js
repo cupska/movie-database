@@ -23,7 +23,7 @@ export function DetailMovieTv(props) {
     const tagline = data.tagline
     const overview = data.overview
 
-    console.log(genres)
+    // console.log(genres)
     return (
         <div className=" flex justify-center bg-cover bg-center" style={{backgroundImage: `url(${backgroundImage})`}}>
             <div className=" sm:py-10 flex flex-col sm:flex-row justify-center items-center " >
