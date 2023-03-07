@@ -5,36 +5,44 @@ import { CardMoviesTV, CardPerson } from "./card"
 export function Slider(props) {
     const [datas, setDatas] = useState([])
     const options = props.options
-    const [optionActivated, setOptionActivated] = useState(options[0].url)
+    const [optionActivated, setOptionActivated] = useState(options[0])
     const section = props.section
-    const url = optionActivated
+    const url = optionActivated.url
     useEffect(() => {
         fetch(url)
         .then(res => res.json())
         .then(res => setDatas(res.results))
     }, [url])
 
+    const [changeColor, setChangeColor] = useState(0)
+    console.log(optionActivated)
     return (
         <div>
-          <div className=" flex items-baseline gap-3">
+          <div className=" ml-2 md:ml-10 mb-5 flex items-baseline gap-3">
             <h1 className="title-slider capitalize">{section}</h1>
             <ul className=" flex gap-3">
               {options.map((option, index)=> {
                 return (
-                  <li key={index}><button onClick={() => setOptionActivated(option.url)}>{option.name}</button></li>
+                  <li key={index}><button onClick={(e) => {
+                    setOptionActivated(option)
+                    setChangeColor(index)
+                  }} className={`${changeColor === index ? "text-emerald-400" : ""}`}>{option.name}</button></li>
                   )
               })}
             </ul>
           </div>
-          <ul className=" flex gap-2">
+          <ul className=" w-[100%] px-5 pb-5 flex gap-2 overflow-x-auto">
             {datas.map((data, index) => {
+              const id = data.id
               const title = data.name||data.title
               const rating = data.vote_average.toFixed(1);
               const image = `https://image.tmdb.org/t/p/w500/${data.poster_path}`
               const releaseDate = (data.release_date||data.first_air_date).slice(0,4)
+              const mediaType = data.media_type||optionActivated.name
+
               return (
                 <li key={data.id}>
-                  <CardMoviesTV title={title} rating={rating} image={image} releaseDate={releaseDate}/>
+                  <CardMoviesTV id={id} title={title} rating={rating} image={image} releaseDate={releaseDate} mediaType={mediaType}/>
                 </li>
               )
             })}
@@ -56,18 +64,18 @@ export function SliderNews(props) {
   // console.log(datas)
   return (
     <div>
-      <div><h1 className="title-slider">News</h1></div>
-      <ul>
+      <div className=" ml-2 md:ml-10 mb-5 flex items-baseline gap-3"><h1 className="title-slider">News</h1></div>
+      <ul className=" mb-10 grid xl:grid-cols-5 place-items-stretch justify-items-stretch">
         {datas.map(data => {
           const title = data.title
           const description = data.description
           const url = data.url
           const image = data.urlToImage
           return (
-            <li key={data.title}>
-              <a href={url} target="_blank" rel="noreferrer" className=" relative">
-                <div><img src={image} alt='poster'/></div>
-                <div className=" absolute p-2 bottom-0 bg-gradient-to-t from-black to-transparent">
+            <li key={data.title} className=" bg-cover p-3" style={{backgroundImage: `url(${image})`}}>
+              <a href={url} target="_blank" rel="noreferrer" className={`cursor-pointer`} >
+                {/* <div><img src={image} alt='poster'/></div> */} 
+                <div className="  p-3 bg-opacity-50 bg-slate-800 ">
                   <h2 className=" text-white font-bold">{title}</h2>
                   <p className=" text-white leading-4 line-clamp-2">{description}</p>
                 </div>
@@ -93,16 +101,19 @@ export function SliderPerson(props) {
   // console.log(datas)
   return (
     <div>
-      <div><h1 className="title-slider capitalize">Popular People</h1></div>
-      <ul className=" flex gap-2">
+      <div className=" ml-2 md:ml-10 mb-5 flex items-baseline gap-3"><h1 className="title-slider capitalize">Popular People</h1></div>
+      <ul className=" pb-16 px-5 flex gap-3 overflow-x-auto">
         {datas.map(data => {
           const person = {
+            id: data.id,
             name: data.name, 
             image: `https://image.tmdb.org/t/p/w500/${data.profile_path}`
           }
           return (
-            <li key={data.id} className="">
-              <CardPerson data={person}/>
+            <li key={data.id}>
+              <div className=" w-[7rem] h-[7rem]">
+                <CardPerson data={person}/>
+              </div>
             </li>
           )
         })}
