@@ -13,7 +13,7 @@ export function PeoplePage(props) {
       .then((res) => res.json())
       .then((res) => setDatas(res.results))
     }, [url])
-    console.log(datas)
+    // console.log(datas)
     return (
         <div className=" flex flex-col items-center gap-8 my-10">
             <Outlet/>

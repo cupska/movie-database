@@ -16,7 +16,7 @@ export function MoviePage(props) {
         .then(res => setDatas(res.results))
     }, [url])
 
-    console.log(datas)
+    // console.log(datas)
     return (
         <div className=" w-[100%]">
             <Outlet/>
