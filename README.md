@@ -1,4 +1,5 @@
 MyDB (movie-database)
+mydbs.netlify.app
 
 Merupakan aplikasi pencari film, tv series, aktor, dan berita terkait showbiz.
 
