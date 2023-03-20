@@ -15,12 +15,12 @@ export function PeoplePage(props) {
     }, [url])
     // console.log(datas)
     return (
-        <div className=" flex flex-col items-center gap-8 my-10">
+        <div id="top-peoplePage" className=" flex flex-col items-center gap-8 my-10">
             <Outlet/>
             <div className=" flex justify-center">
                 <h1 className=" title-slider">Discover People</h1>
             </div>
-            <ul className=" w-fit grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-3">
+            <ul className=" w-fit grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-3">
                 {datas.map(data => {
                 const person = {
                     id: data.id,
@@ -28,8 +28,8 @@ export function PeoplePage(props) {
                     image: `https://image.tmdb.org/t/p/w500/${data.profile_path}`
                 }
                 return (
-                    <li key={data.id} className=" w-[7rem] sm:w-[13rem] ">
-                        <CardPerson data={person}/>
+                    <li key={data.id} className="">
+                            <CardPerson data={person}/>
                     </li>
                 )
                 })}

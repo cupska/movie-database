@@ -103,7 +103,7 @@ export function SliderPerson(props) {
   return (
     <div>
       <div className=" ml-2 md:ml-10 mb-5 flex items-baseline gap-3"><h1 className="title-slider capitalize">Popular People</h1></div>
-      <ul className=" pb-16 px-5 flex gap-3 overflow-x-auto">
+      <ul className=" pb-5 px-5 flex gap-3 overflow-x-auto">
         {datas.map(data => {
           const person = {
             id: data.id,
@@ -112,7 +112,7 @@ export function SliderPerson(props) {
           }
           return (
             <li key={data.id}>
-              <div className=" w-[7rem] h-[7rem]">
+              <div className="">
                 <CardPerson data={person}/>
               </div>
             </li>

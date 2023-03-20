@@ -27,7 +27,7 @@ export function DetailPerson(props) {
             <div className=" sm:hidden">
                 <img src={image} alt={name} className=" w-[10rem] m-auto rounded-lg"/>
                 <h1 className=" text-center text-3xl font-bold">{name}</h1>
-                <div className=" p-5">
+                <div className=" max-sm:w-screen p-5">
                     <h2 className=" font-bold text-lg underline underline-offset-2">Personal Info</h2>
                     <div>
                         <div>
@@ -49,7 +49,7 @@ export function DetailPerson(props) {
                     </div>
                 </div>
                 <div className=" p-3">
-                    <h3 className=" font-semibold text-lg">Biography</h3>
+                    <h3 className=" font-semibold text-lg text-center">Biography</h3>
                     <p className=" text-justify">{biography}</p>
                 </div>
             </div>

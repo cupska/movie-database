@@ -24,11 +24,11 @@ export function CardMoviesTV(props) {
 export function CardPerson(props) {
     const {id, name, image} = props.data
     return (
-        // <div className=" w-60">
+        <div className=" w-36 flex justify-center">
             <Link to={`/people/${id}`} className=" w-[100%]">
                 <div className=" w-[100%] flex items-center overflow-hidden aspect-square"><img src={image} alt="Profile"></img></div>
                 <div className=" mt-2"><h2 className="  leading-4">{name}</h2></div>
             </Link>
-        // </div>
+        </div>
     )
 }

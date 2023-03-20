@@ -50,7 +50,7 @@ export function SearchPage(props) {
                                     image: `https://image.tmdb.org/t/p/w500/${data.profile_path}`
                                 }
                                 return (
-                                    <li key={data.id} className=" w-[7rem]">
+                                    <li key={data.id} className=" flex items-center">
                                         <CardPerson data={person}/>
                                     </li>
                                 )
